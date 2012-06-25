@@ -1,22 +1,22 @@
 //
-//  IRRTEEditorView.m
+//  IRRichTextEditorView.m
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.
 //  Copyright (c) 2012 Iridia Productions. All rights reserved.
 //
 
-#import "IRRTEEditorView.h"
+#import "IRRichTextEditorView.h"
 #import <objc/runtime.h>
 
-@interface IRRTEWebView ()
+@interface IRRichTextEditorView ()
 
 - (void) commonInit;
 
 @end
 
 
-@implementation IRRTEWebView {
+@implementation IRRichTextEditorView {
 	
 	@package
 	BOOL _hasLoadedContent;
@@ -51,7 +51,7 @@
 		
 	#endif
 	
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRTEEditor" ofType:@"html" inDirectory:@"IRRTEEditor.bundle"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRichTextEditor" ofType:@"html" inDirectory:@"IRRichTextEditor.bundle"];
 	NSParameterAssert(path);
 	
 	NSURL *url = [NSURL fileURLWithPath:path];

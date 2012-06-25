@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF38420315988E7000E7EDE2 /* IRRTEEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF70E448152E2549008BFB00 /* IRRTEEditorView.m */; };
-		FF38420415988E7200E7EDE2 /* IRRTEEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95F301152E194E008DA649 /* IRRTEEditorViewController.m */; };
+		FF38420315988E7000E7EDE2 /* IRRichTextEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF70E448152E2549008BFB00 /* IRRichTextEditorView.m */; };
+		FF38420415988E7200E7EDE2 /* IRRichTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95F301152E194E008DA649 /* IRRichTextEditorViewController.m */; };
 		FFBEE73B15988B260057BEA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF95F2EB152E1939008DA649 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +26,8 @@
 
 /* Begin PBXFileReference section */
 		FF3842051598914400E7EDE2 /* IRRichTextEditor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = IRRichTextEditor.bundle; path = IRRichTextEditor/IRRichTextEditor.bundle; sourceTree = "<group>"; };
-		FF70E447152E2549008BFB00 /* IRRTEEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRTEEditorView.h; path = IRRichTextEditor/IRRTEEditorView.h; sourceTree = "<group>"; };
-		FF70E448152E2549008BFB00 /* IRRTEEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRTEEditorView.m; path = IRRichTextEditor/IRRTEEditorView.m; sourceTree = "<group>"; };
+		FF70E447152E2549008BFB00 /* IRRichTextEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRichTextEditorView.h; path = IRRichTextEditor/IRRichTextEditorView.h; sourceTree = "<group>"; };
+		FF70E448152E2549008BFB00 /* IRRichTextEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRichTextEditorView.m; path = IRRichTextEditor/IRRichTextEditorView.m; sourceTree = "<group>"; };
 		FF95F2E9152E1939008DA649 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF95F2EB152E1939008DA649 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FF95F2ED152E1939008DA649 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -35,8 +35,8 @@
 		FF95F2F3152E1939008DA649 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF95F2F5152E1939008DA649 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FF95F2F7152E1939008DA649 /* IRRichTextEditor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRRichTextEditor-Prefix.pch"; sourceTree = "<group>"; };
-		FF95F300152E194E008DA649 /* IRRTEEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRTEEditorViewController.h; path = IRRichTextEditor/IRRTEEditorViewController.h; sourceTree = "<group>"; };
-		FF95F301152E194E008DA649 /* IRRTEEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRTEEditorViewController.m; path = IRRichTextEditor/IRRTEEditorViewController.m; sourceTree = "<group>"; };
+		FF95F300152E194E008DA649 /* IRRichTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRichTextEditorViewController.h; path = IRRichTextEditor/IRRichTextEditorViewController.h; sourceTree = "<group>"; };
+		FF95F301152E194E008DA649 /* IRRichTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRichTextEditorViewController.m; path = IRRichTextEditor/IRRichTextEditorViewController.m; sourceTree = "<group>"; };
 		FFBEE73A15988B260057BEA0 /* libIRRichTextEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIRRichTextEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,10 +55,10 @@
 		FF95F2DA152E1939008DA649 = {
 			isa = PBXGroup;
 			children = (
-				FF95F300152E194E008DA649 /* IRRTEEditorViewController.h */,
-				FF95F301152E194E008DA649 /* IRRTEEditorViewController.m */,
-				FF70E447152E2549008BFB00 /* IRRTEEditorView.h */,
-				FF70E448152E2549008BFB00 /* IRRTEEditorView.m */,
+				FF95F300152E194E008DA649 /* IRRichTextEditorViewController.h */,
+				FF95F301152E194E008DA649 /* IRRichTextEditorViewController.m */,
+				FF70E447152E2549008BFB00 /* IRRichTextEditorView.h */,
+				FF70E448152E2549008BFB00 /* IRRichTextEditorView.m */,
 				FF3842051598914400E7EDE2 /* IRRichTextEditor.bundle */,
 				FF95F2F0152E1939008DA649 /* Supporting Files */,
 				FF95F2E8152E1939008DA649 /* Frameworks */,
@@ -147,8 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF38420415988E7200E7EDE2 /* IRRTEEditorViewController.m in Sources */,
-				FF38420315988E7000E7EDE2 /* IRRTEEditorView.m in Sources */,
+				FF38420415988E7200E7EDE2 /* IRRichTextEditorViewController.m in Sources */,
+				FF38420315988E7000E7EDE2 /* IRRichTextEditorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

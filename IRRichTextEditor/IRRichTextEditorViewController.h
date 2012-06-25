@@ -1,5 +1,5 @@
 //
-//  IRRTEEditorViewController.h
+//  IRRichTextEditorViewController.h
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IRRTEEditorViewController : UIViewController
+@interface IRRichTextEditorViewController : UIViewController
 
 @end
