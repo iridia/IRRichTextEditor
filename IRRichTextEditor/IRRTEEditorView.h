@@ -10,4 +10,6 @@
 
 @interface IRRTEWebView : UIWebView
 
+- (NSBundle *) bundle;	//	[NSBundle ]
+
 @end

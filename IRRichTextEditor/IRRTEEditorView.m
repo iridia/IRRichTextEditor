@@ -9,41 +9,55 @@
 #import "IRRTEEditorView.h"
 #import <objc/runtime.h>
 
-@implementation IRRTEWebView
+@interface IRRTEWebView ()
+
+- (void) commonInit;
+
+@end
+
+
+@implementation IRRTEWebView {
+	
+	@package
+	BOOL _hasLoadedContent;
+	BOOL _hasSwizzledInputAccessoryView;
+	
+}
 
 - (void) didMoveToSuperview {
 
 	[super didMoveToSuperview];
-	
-#if TARGET_IPHONE_SIMULATOR
+	[self commonInit];
 
-	//	Enables local remote inspector if running on the Simulator.
-	//	Note: seems broken on OS X 12A154q
-		
-	do {
-		
+}
+
+- (void) commonInit {
+
+	if (_hasLoadedContent)
+		return;
+	
+	_hasLoadedContent = YES;
+	
+	#if TARGET_IPHONE_SIMULATOR
+
+		//	Enables local remote inspector if running on the Simulator.
+		//	Note: seems broken on OS X 12A154q
+		//	Note: WebSockets draft implementation changed, latest Chrome won’t work, get older ones
+			
 		static dispatch_once_t onceToken;
 		dispatch_once(&onceToken, ^{
-
 			[NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
-
 		});
-	
-	} while (0);
-	
-#endif
-	
-	if (YES /* not initialized yet */) {
-	
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRTEEditor" ofType:@"html"];
-		NSParameterAssert(path);
 		
-		NSURL *url = [NSURL fileURLWithPath:path];
-		NSParameterAssert(url);
+	#endif
 	
-		[self loadRequest:[NSURLRequest requestWithURL:url]];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRTEEditor" ofType:@"html" inDirectory:@"IRRTEEditor.bundle"];
+	NSParameterAssert(path);
 	
-	}
+	NSURL *url = [NSURL fileURLWithPath:path];
+	NSParameterAssert(url);
+
+	[self loadRequest:[NSURLRequest requestWithURL:url]];
 
 }
 
