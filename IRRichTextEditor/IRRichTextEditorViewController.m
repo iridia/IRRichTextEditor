@@ -1,5 +1,5 @@
 //
-//  IRRTEEditorViewController.m
+//  IRRichTextEditorViewController.m
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.
@@ -7,15 +7,23 @@
 //
 
 #import <objc/runtime.h>
-#import "IRRTEEditorViewController.h"
-#import "IRRTEEditorView.h"
+#import "IRRichTextEditorViewController.h"
+#import "IRRichTextEditorView.h"
 
 
-@implementation IRRTEEditorViewController
+@implementation IRRichTextEditorViewController
 
 - (void) loadView {
 
-	self.view = [[IRRTEWebView alloc] initWithFrame:CGRectZero];
+	if (self.nibName) {
+		
+		[super loadView];
+		
+	} else {
+		
+		self.view = [[IRRichTextEditorView alloc] initWithFrame:CGRectZero];
+		
+	}
 	
 }
 

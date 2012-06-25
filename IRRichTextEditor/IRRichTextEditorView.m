@@ -1,22 +1,22 @@
 //
-//  IRRTEEditorView.m
+//  IRRichTextEditorView.m
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.
 //  Copyright (c) 2012 Iridia Productions. All rights reserved.
 //
 
-#import "IRRTEEditorView.h"
+#import "IRRichTextEditorView.h"
 #import <objc/runtime.h>
 
-@interface IRRTEWebView ()
+@interface IRRichTextEditorView ()
 
 - (void) commonInit;
 
 @end
 
 
-@implementation IRRTEWebView {
+@implementation IRRichTextEditorView {
 	
 	@package
 	BOOL _hasLoadedContent;
@@ -38,6 +38,13 @@
 	
 	_hasLoadedContent = YES;
 	
+	self.backgroundColor = [UIColor whiteColor];
+	self.scalesPageToFit = NO;
+	
+	for (UIView *aSV in self.scrollView.subviews)
+		if ([aSV isKindOfClass:[UIImageView class]])
+			aSV.hidden = YES;
+	
 	#if TARGET_IPHONE_SIMULATOR
 
 		//	Enables local remote inspector if running on the Simulator.
@@ -51,7 +58,7 @@
 		
 	#endif
 	
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRTEEditor" ofType:@"html" inDirectory:@"IRRTEEditor.bundle"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRichTextEditor" ofType:@"html" inDirectory:@"IRRichTextEditor.bundle"];
 	NSParameterAssert(path);
 	
 	NSURL *url = [NSURL fileURLWithPath:path];
@@ -65,14 +72,14 @@
 
 	[super layoutSubviews];
 	
+	static NSString * uniqueSuffix;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		uniqueSuffix = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, CFUUIDCreate(NULL));
+	});
+
 	for (UIView *aView in self.scrollView.subviews) {
 	
-		static NSString * uniqueSuffix;
-		static dispatch_once_t onceToken;
-		dispatch_once(&onceToken, ^{
-			uniqueSuffix = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, CFUUIDCreate(NULL));
-		});
-		
 		Class ownClass = [aView class];
 		NSString *className = NSStringFromClass(ownClass);
 	
@@ -96,6 +103,22 @@
 - (id) methodReturningNil {
 
 	return nil;
+
+}
+
+- (NSString *) htmlString {
+
+	//	TBD
+
+	return nil;
+
+}
+
+- (void) setHtmlString:(NSString *)htmlString {
+
+	[self commonInit];
+	
+	//	TBD
 
 }
 

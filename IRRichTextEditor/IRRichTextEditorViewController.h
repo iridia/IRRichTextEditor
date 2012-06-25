@@ -1,5 +1,5 @@
 //
-//  IRRTEEditorView.h
+//  IRRichTextEditorViewController.h
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IRRTEWebView : UIWebView
-
-- (NSBundle *) bundle;	//	[NSBundle ]
+@interface IRRichTextEditorViewController : UIViewController
 
 @end
