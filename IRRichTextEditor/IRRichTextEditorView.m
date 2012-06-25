@@ -38,6 +38,13 @@
 	
 	_hasLoadedContent = YES;
 	
+	self.backgroundColor = [UIColor whiteColor];
+	self.scalesPageToFit = NO;
+	
+	for (UIView *aSV in self.scrollView.subviews)
+		if ([aSV isKindOfClass:[UIImageView class]])
+			aSV.hidden = YES;
+	
 	#if TARGET_IPHONE_SIMULATOR
 
 		//	Enables local remote inspector if running on the Simulator.
@@ -65,14 +72,14 @@
 
 	[super layoutSubviews];
 	
+	static NSString * uniqueSuffix;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		uniqueSuffix = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, CFUUIDCreate(NULL));
+	});
+
 	for (UIView *aView in self.scrollView.subviews) {
 	
-		static NSString * uniqueSuffix;
-		static dispatch_once_t onceToken;
-		dispatch_once(&onceToken, ^{
-			uniqueSuffix = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, CFUUIDCreate(NULL));
-		});
-		
 		Class ownClass = [aView class];
 		NSString *className = NSStringFromClass(ownClass);
 	
@@ -96,6 +103,22 @@
 - (id) methodReturningNil {
 
 	return nil;
+
+}
+
+- (NSString *) htmlString {
+
+	//	TBD
+
+	return nil;
+
+}
+
+- (void) setHtmlString:(NSString *)htmlString {
+
+	[self commonInit];
+	
+	//	TBD
 
 }
 

@@ -10,4 +10,6 @@
 
 @interface IRRichTextEditorView : UIWebView
 
+@property (nonatomic, readwrite, copy) NSString *htmlString;
+
 @end
