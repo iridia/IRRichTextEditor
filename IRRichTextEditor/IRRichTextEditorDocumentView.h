@@ -1,5 +1,5 @@
 //
-//  IRRichTextEditorView.h
+//  IRRichTextEditorDocumentView.h
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.

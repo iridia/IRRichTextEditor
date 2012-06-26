@@ -1,5 +1,5 @@
 //
-//  IRRichTextEditorView.m
+//  IRRichTextEditorDocumentView.m
 //  IRRichTextEditor
 //
 //  Created by Evadne Wu on 4/6/12.
