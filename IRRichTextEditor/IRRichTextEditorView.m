@@ -2,123 +2,58 @@
 //  IRRichTextEditorView.m
 //  IRRichTextEditor
 //
-//  Created by Evadne Wu on 4/6/12.
+//  Created by Evadne Wu on 6/26/12.
 //  Copyright (c) 2012 Iridia Productions. All rights reserved.
 //
 
 #import "IRRichTextEditorView.h"
-#import <objc/runtime.h>
+#import "IRRichTextEditorDocumentView.h"
 
 @interface IRRichTextEditorView ()
+
+@property (nonatomic, readwrite, strong) IRRichTextEditorDocumentView *documentView;
 
 - (void) commonInit;
 
 @end
 
+@implementation IRRichTextEditorView
+@synthesize documentView = _documentView;
 
-@implementation IRRichTextEditorView {
+- (id) initWithFrame:(CGRect)frame {
 	
-	@package
-	BOOL _hasLoadedContent;
-	BOOL _hasSwizzledInputAccessoryView;
+	self = [super initWithFrame:frame];
+	if (!self)
+		return nil;
+	
+	[self commonInit];
+	
+	return self;
 	
 }
 
-- (void) didMoveToSuperview {
+- (void) awakeFromNib {
 
-	[super didMoveToSuperview];
 	[self commonInit];
 
 }
 
 - (void) commonInit {
 
-	if (_hasLoadedContent)
-		return;
-	
-	_hasLoadedContent = YES;
-	
-	self.backgroundColor = [UIColor whiteColor];
-	self.scalesPageToFit = NO;
-	
-	for (UIView *aSV in self.scrollView.subviews)
-		if ([aSV isKindOfClass:[UIImageView class]])
-			aSV.hidden = YES;
-	
-	#if TARGET_IPHONE_SIMULATOR
-
-		//	Enables local remote inspector if running on the Simulator.
-		//	Note: seems broken on OS X 12A154q
-		//	Note: WebSockets draft implementation changed, latest Chrome won’t work, get older ones
-			
-		static dispatch_once_t onceToken;
-		dispatch_once(&onceToken, ^{
-			[NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
-		});
-		
-	#endif
-	
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"IRRichTextEditor" ofType:@"html" inDirectory:@"IRRichTextEditor.bundle"];
-	NSParameterAssert(path);
-	
-	NSURL *url = [NSURL fileURLWithPath:path];
-	NSParameterAssert(url);
-
-	[self loadRequest:[NSURLRequest requestWithURL:url]];
+	[self addSubview:self.documentView];
 
 }
 
-- (void) layoutSubviews {
+- (IRRichTextEditorDocumentView *) documentView {
 
-	[super layoutSubviews];
+	if (!_documentView) {
 	
-	static NSString * uniqueSuffix;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		uniqueSuffix = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, CFUUIDCreate(NULL));
-	});
-
-	for (UIView *aView in self.scrollView.subviews) {
-	
-		Class ownClass = [aView class];
-		NSString *className = NSStringFromClass(ownClass);
-	
-		if (![className hasSuffix:uniqueSuffix]) {
-			
-			NSString *newClassName = [className stringByAppendingString:uniqueSuffix];
-			Class newClass = objc_allocateClassPair(ownClass, [newClassName UTF8String], 0);
-			IMP nilImp = [self methodForSelector:@selector(methodReturningNil)];
-			class_addMethod(newClass, @selector(inputAccessoryView), nilImp, "@@:");
-			if (newClass) {
-				objc_registerClassPair(newClass);
-				object_setClass(aView, newClass);
-			}
-		
-		}
+		_documentView = [[IRRichTextEditorDocumentView alloc] initWithFrame:self.bounds];
+		_documentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	
 	}
-
-}
-
-- (id) methodReturningNil {
-
-	return nil;
-
-}
-
-- (NSString *) htmlString {
-
-	//	TBD
-
-	return nil;
-
-}
-
-- (void) setHtmlString:(NSString *)htmlString {
-
-	[self commonInit];
 	
-	//	TBD
+	return _documentView;
 
 }
 

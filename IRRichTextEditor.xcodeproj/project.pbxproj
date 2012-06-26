@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF38420315988E7000E7EDE2 /* IRRichTextEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF70E448152E2549008BFB00 /* IRRichTextEditorView.m */; };
+		FF38420315988E7000E7EDE2 /* IRRichTextEditorDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF70E448152E2549008BFB00 /* IRRichTextEditorDocumentView.m */; };
 		FF38420415988E7200E7EDE2 /* IRRichTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95F301152E194E008DA649 /* IRRichTextEditorViewController.m */; };
 		FFBEE73B15988B260057BEA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF95F2EB152E1939008DA649 /* Foundation.framework */; };
+		FFD18B0A1599352100842C2D /* IRRichTextEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD18B091599352100842C2D /* IRRichTextEditorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +27,8 @@
 
 /* Begin PBXFileReference section */
 		FF3842051598914400E7EDE2 /* IRRichTextEditor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = IRRichTextEditor.bundle; path = IRRichTextEditor/IRRichTextEditor.bundle; sourceTree = "<group>"; };
-		FF70E447152E2549008BFB00 /* IRRichTextEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRichTextEditorView.h; path = IRRichTextEditor/IRRichTextEditorView.h; sourceTree = "<group>"; };
-		FF70E448152E2549008BFB00 /* IRRichTextEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRichTextEditorView.m; path = IRRichTextEditor/IRRichTextEditorView.m; sourceTree = "<group>"; };
+		FF70E447152E2549008BFB00 /* IRRichTextEditorDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRichTextEditorDocumentView.h; path = IRRichTextEditor/IRRichTextEditorDocumentView.h; sourceTree = "<group>"; };
+		FF70E448152E2549008BFB00 /* IRRichTextEditorDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRichTextEditorDocumentView.m; path = IRRichTextEditor/IRRichTextEditorDocumentView.m; sourceTree = "<group>"; };
 		FF95F2E9152E1939008DA649 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF95F2EB152E1939008DA649 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FF95F2ED152E1939008DA649 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -38,6 +39,8 @@
 		FF95F300152E194E008DA649 /* IRRichTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRichTextEditorViewController.h; path = IRRichTextEditor/IRRichTextEditorViewController.h; sourceTree = "<group>"; };
 		FF95F301152E194E008DA649 /* IRRichTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRichTextEditorViewController.m; path = IRRichTextEditor/IRRichTextEditorViewController.m; sourceTree = "<group>"; };
 		FFBEE73A15988B260057BEA0 /* libIRRichTextEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIRRichTextEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD18B081599352100842C2D /* IRRichTextEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRRichTextEditorView.h; path = IRRichTextEditor/IRRichTextEditorView.h; sourceTree = "<group>"; };
+		FFD18B091599352100842C2D /* IRRichTextEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRRichTextEditorView.m; path = IRRichTextEditor/IRRichTextEditorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +60,10 @@
 			children = (
 				FF95F300152E194E008DA649 /* IRRichTextEditorViewController.h */,
 				FF95F301152E194E008DA649 /* IRRichTextEditorViewController.m */,
-				FF70E447152E2549008BFB00 /* IRRichTextEditorView.h */,
-				FF70E448152E2549008BFB00 /* IRRichTextEditorView.m */,
+				FFD18B081599352100842C2D /* IRRichTextEditorView.h */,
+				FFD18B091599352100842C2D /* IRRichTextEditorView.m */,
+				FF70E447152E2549008BFB00 /* IRRichTextEditorDocumentView.h */,
+				FF70E448152E2549008BFB00 /* IRRichTextEditorDocumentView.m */,
 				FF3842051598914400E7EDE2 /* IRRichTextEditor.bundle */,
 				FF95F2F0152E1939008DA649 /* Supporting Files */,
 				FF95F2E8152E1939008DA649 /* Frameworks */,
@@ -148,7 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF38420415988E7200E7EDE2 /* IRRichTextEditorViewController.m in Sources */,
-				FF38420315988E7000E7EDE2 /* IRRichTextEditorView.m in Sources */,
+				FF38420315988E7000E7EDE2 /* IRRichTextEditorDocumentView.m in Sources */,
+				FFD18B0A1599352100842C2D /* IRRichTextEditorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
