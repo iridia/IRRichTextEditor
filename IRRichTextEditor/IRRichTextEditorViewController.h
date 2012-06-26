@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRRichTextEditorView.h"
 
 @interface IRRichTextEditorViewController : UIViewController
+
+@property (nonatomic, retain) IRRichTextEditorView *view;
 
 @end

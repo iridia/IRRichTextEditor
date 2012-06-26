@@ -2,14 +2,15 @@
 //  IRRichTextEditorView.h
 //  IRRichTextEditor
 //
-//  Created by Evadne Wu on 4/6/12.
+//  Created by Evadne Wu on 6/26/12.
 //  Copyright (c) 2012 Iridia Productions. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface IRRichTextEditorView : UIWebView
+@class IRRichTextEditorDocumentView;
+@interface IRRichTextEditorView : UIView
 
-@property (nonatomic, readwrite, copy) NSString *htmlString;
+@property (nonatomic, readonly, strong) IRRichTextEditorDocumentView *documentView;
 
 @end
